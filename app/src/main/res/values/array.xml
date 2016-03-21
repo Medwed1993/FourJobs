@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="color_list">
+        <item>Фиолетовый</item>
+        <item>Красный</item>
+        <item>Голубой</item>
+        <item>Серый</item>
+
+    </string-array>
+    <string-array name="color_list2">
+        <item>Желтый</item>
+        <item>Белый</item>
+        <item>Черный</item>
+        <item>Красный</item>
+    </string-array>
+    <string-array name="entryvalues_color">
+        <item>-16711936</item>
+        <item>-65281</item>
+        <item>-16776961</item>
+        <item>-12303292</item>
+    </string-array>
+       <string-array name="entryvalues_color2">
+        <item>-256</item>
+        <item>-1</item>
+        <item>-16777216</item>
+        <item>-65536</item>
+    </string-array>
+
+</resources>

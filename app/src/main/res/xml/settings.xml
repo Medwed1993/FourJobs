@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/interface_settings" >
+        <EditTextPreference
+            android:defaultValue="30"
+            android:dialogTitle="@string/interface_settings_enter_a"
+            android:key="pref_a"
+            android:summary="@string/interface_settings_set_new_a"
+            android:title="@string/interface_settings_pref_size" 
+            android:inputType="number"
+            />
+
+        <ListPreference
+            android:defaultValue="-12303292"
+            android:dialogTitle="@string/interface_settings_check_objcolor"
+            android:entries="@array/color_list"
+            android:entryValues="@array/entryvalues_color"
+            android:key="pref_c"
+            android:summary="@string/interface_settings_set_objсolor"
+            android:title="@string/interface_settings_objcolor" />
+   
+     <ListPreference
+            android:defaultValue="-1"
+            android:dialogTitle="@string/interface_settings_check_backcolor"
+            android:entries="@array/color_list2"
+            android:entryValues="@array/entryvalues_color2"
+            android:key="pref_cb"
+            android:summary="@string/interface_settings_set_backсolor"
+            android:title="@string/interface_settings_backcolor" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Задания</string>
+    <string name="Zad1">Задание 1</string>
+    <string name="Zad2">Задание 2</string>
+    <string name="Zad3">Задание 3</string>
+
+    <string name="action_settings">Настройки</string>
+    <string name="title_activity_settings">Параметры</string>
+    <string name="interface_settings">Параметры 3 задания</string>
+    <string name="interface_settings_enter_a">Введите значение ускорения (0..100)</string>
+    <string name="interface_settings_set_new_a">Устанавливает новое значение ускорения</string>
+    <string name="interface_settings_pref_size">Ускорение объекта</string>
+    <string name="interface_settings_check_objcolor">Выберите цвет объекта</string>
+    <string name="interface_settings_set_objсolor">Устанавливает цвет объекта</string>
+    <string name="interface_settings_objcolor">Цвет объекта</string>
+    <string name="interface_settings_check_backcolor">Выберите цвет фона</string>
+    <string name="interface_settings_set_backсolor">Устанавливает цвет фона</string>
+    <string name="interface_settings_backcolor">Цвет фона</string>
+    <string name="exit_title">Выход</string>
+
+</resources>
