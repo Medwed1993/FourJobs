@@ -56,7 +56,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	  //����
 	  public boolean onCreateOptionsMenu(Menu menu ) 
 	  {
-	     menu.add(0,IDM_PREF, 0, "���������");
+	     menu.add(0,IDM_PREF, 0, "Настройка");
 	     return super.onCreateOptionsMenu(menu);
 	  }
 	  
