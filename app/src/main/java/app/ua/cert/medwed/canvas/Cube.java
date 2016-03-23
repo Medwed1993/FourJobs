@@ -19,7 +19,8 @@ public class Cube {
 	float speedX = 1; // �������� ����������� �� �����������
 	float speedY = 5; // �������� ����������� �� ���������
 	float a=1;		  //���������
-	float bordery;    //������� �������, �� ������� ����� ������������ ���
+	float bordery;
+	   float sm;//������� �������, �� ������� ����� ������������ ���
 
 	private RectF bounds; // ��� ��������� �������� ������� ����
 	private Paint paint;  // ����� ��� ��������� ������
@@ -27,10 +28,11 @@ public class Cube {
 	private Paint paint3;
 
 	// �����������
-	public Cube(int color, float xcoord, float ycoord, int speedx_val, int speedy_val) {
+	public Cube(int c,int color, float xcoord, float ycoord, int speedx_val, int speedy_val) {
 		//���������� ���������� ���������, �������� ����������� � ���� ��������
 		x = xcoord;
 		y = ycoord;
+		sm=c;
 		bordery = y-radius;
 		speedX = speedx_val;
 		speedY = speedy_val;
@@ -90,55 +92,52 @@ public class Cube {
 		//���� �������� �� ��������� �� 0
 		if (speedY!=0){
 			//�������� ������
-			bounds.set(x - radius, y - radius, x + radius, y + radius);
+			bounds.set(x - sm, y - 2 * sm, x + 2 * sm, y + sm);
 			paint.setStyle(Style.FILL_AND_STROKE);
-		//	canvas.drawRect(bounds, paint);
 
 			Path p = new Path();
-			p.moveTo(x +4*radius, y + 2 * radius-50);
-			p.lineTo(x + 2 * radius, y - 2 * radius);
-			p.lineTo(x + 2 * radius-50, y+radius+50);
+			p.reset();
+			p.moveTo(x - sm, y - sm / 3);
+			p.lineTo(x + sm / 6, (float) (y - 1.5 * sm));
+			p.lineTo(x, y);
+
 			p.close();
 
 			Path p3 = new Path();
-			p3.moveTo(x - radius, y + radius);
-			p3.lineTo(x + 2 * radius, y - 2 * radius);
-			p3.lineTo(x + 2 * radius-50, y+radius+50);
+			p3.reset();
+			p3.moveTo(x + sm / 6, (float) (y - 1.5 * sm));
+			p3.lineTo((float) (x+ 1.5*sm), y - sm/3);
+			p3.lineTo(x, y);
 
 			p3.close();
 
 
-	   //  	p.moveTo(x - radius, y - radius);
-		/*	p.lineTo(x - radius, y -radius );
-			p.lineTo(2 * radius,  2 * radius);
-			p.lineTo(x + +  radius -radius, y - radius);
-			p.close();
-*/
 			Path p2 = new Path();
-			p2.moveTo(x + 2 * radius, y +5 * radius);
-			p2.lineTo(x - radius, y + radius);
-			p2.lineTo(x + 2 * radius - 50, y + radius + 50);
-
-			p2.close();
+			p2.reset();
+			p2.moveTo(x - sm, y - sm / 3);
+			p2.lineTo(x + sm / 6, y + sm);
+			p2.lineTo(x, y);
+						p2.close();
 
 
 			Path p4 = new Path();
-			p4.moveTo(x + 2 * radius, y +5 * radius);
-			p4.lineTo(x +4*radius, y + 2 * radius-50);
-			p4.lineTo(x + 2 * radius-50, y+radius+50);
+			p4.reset();
+			p4.moveTo((float) (x + 1.5 * sm), y - sm / 3);
+			p4.lineTo(x + sm / 6, y + sm);
+			p4.lineTo(x, y);
 
 			p4.close();
 
 			canvas.drawPath(p, paint);
-			canvas.drawPath(p2,paint);
+			canvas.drawPath(p2,paint2);
 		//	canvas.drawPath(p3,paint);
 			//�������� �����
 			//paint2.setStyle(Style.STROKE);
 		//	canvas.drawPath(p,paint2);
-			canvas.drawPath(p4,paint2);
+			canvas.drawPath(p4,paint);
 			canvas.drawPath(p3,paint2);
 			//canvas.drawPath(p3,paint2);
-		//	bounds.set(x - radius, y - 2*radius, x + 2*radius, y + radius);
+			bounds.set(x - sm, y - 2*sm, x + 2*sm, y + sm);
 		}
 	}
 

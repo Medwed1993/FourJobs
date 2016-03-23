@@ -24,7 +24,7 @@ public class CubeView extends View {
 	int back_color ; // ���� ���� (������� �� ��������)
 	int cube_color ; // ���� ������� (������� �� ��������)
 	int cube_a = 1; // �������� ������� (������� �� ��������)
-
+int max= getResources().getDisplayMetrics().widthPixels;
 	// �����������
 	public CubeView(Context context, AudioManager audioManager, SoundPool sp) {
 		super(context);
@@ -44,7 +44,7 @@ public class CubeView extends View {
 		// ������� ����
 		winbord = new WindBorder(back_color);
 		// ��������� � ������ ������ ���
-		cube_list.add(new Cube(cube_color, 200, 200, 1, cube_a));
+		cube_list.add(new Cube((int)(max/7),cube_color, 200, 200, 1, cube_a));
 
 		// �������� ���
 		this.setFocusable(true);
@@ -95,7 +95,7 @@ public class CubeView extends View {
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 			// ����� ��� ��������� � ������
-			cube_list.add(new Cube(cube_color, currentX, currentY, 1, cube_a));
+			cube_list.add(new Cube((int)(max/7),cube_color, currentX, currentY, 1, cube_a));
 			break;
 		}
 		return true;

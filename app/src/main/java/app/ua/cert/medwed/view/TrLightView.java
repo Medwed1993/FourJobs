@@ -7,48 +7,55 @@ import android.graphics.Paint;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.View;
 
 //view ����� ��� ������� �������
 public class TrLightView extends View {
-	private ShapeDrawable osn_down; //������ ���������
-	private ShapeDrawable osn_midle; //������� ���������
-	private ShapeDrawable osn_up; //������� ���������
-	
-	private Paint paint; //����� ��� ���������
-	
-	//�����������
+	private ShapeDrawable down; //íèæíåå îñíîâàíèå
+	private ShapeDrawable midle; //ñðåäíåå îñíîâàíèå
+	private ShapeDrawable up; //âåðõíåå îñíîâàíèå
+	private ShapeDrawable road; //äîðîãà
+
+	//êîíñòðóêòîð
 	public TrLightView(Context v, AttributeSet as) {
-		super(v, as);  
+		super(v, as);
 		drawShape(as);
 	}
-	
-	//��������� ���������
+
+	//îòðèñîâêà ñâåòîôîðà
 	public void drawShape(AttributeSet ast) {
-		int x = 200;
-		int y = 400;
-	
-		osn_midle = new ShapeDrawable(new RectShape());
-		osn_midle.getPaint().setColor(Color.BLACK);
-		osn_midle.setBounds(x+10 , y, x + 20, y + 170);
-		
-		osn_down = new ShapeDrawable(new RectShape());
-		osn_down.getPaint().setColor(Color.BLACK);
-		osn_down.setBounds(x-30 , y+170, x + 60, y + 200);
-		
-		osn_up = new ShapeDrawable(new RectShape());
-		osn_up.getPaint().setColor(Color.GRAY);
-		osn_up.setBounds(x-30 , y-250, x + 60, y );
-		
-		paint=new Paint();
-		paint.setColor(0xFF00FF00);
+
+		DisplayMetrics displaymetrics = getResources().getDisplayMetrics();
+		int maxWidth=displaymetrics.widthPixels;
+		int maxHeight=displaymetrics.heightPixels;
+
+		int x = maxWidth/2;
+		int y = maxHeight/2;
+
+		//road = new ShapeDrawable(new RectShape());
+		//road.getPaint().setColor(Color.GRAY);
+		//road.setBounds(0, y + (int) (maxHeight / 7), maxWidth, y + (int) (maxHeight / 3));
+
+		midle = new ShapeDrawable(new RectShape());
+		midle.getPaint().setColor(Color.BLACK);
+		midle.setBounds((int) (maxWidth / 5), y - (int) (maxHeight / 2.5), (int) (maxWidth / 3), y + (int) (maxHeight / 4));
+
+		down = new ShapeDrawable(new RectShape());
+		down.getPaint().setColor(Color.BLACK);
+		down.setBounds((int) (maxWidth / 10), y + (int) (maxHeight / 5), (int) (maxWidth / 2), y + (int) (maxHeight / 4));
+
+
+		up = new ShapeDrawable(new RectShape());
+		up.getPaint().setColor(Color.LTGRAY);
+		up.setBounds(160, y - (int) (maxHeight / 2.5), 290, y - (int) (maxHeight / 15));
+
+
 	}
 
 	protected void onDraw(Canvas canvas) {
-		osn_midle.draw(canvas);
-		osn_down.draw(canvas);
-		osn_up.draw(canvas);
-	}
-	
-	
-}
+	//	road.draw(canvas);
+		midle.draw(canvas);
+		down.draw(canvas);
+		up.draw(canvas);
+	}}

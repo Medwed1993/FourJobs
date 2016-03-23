@@ -2,7 +2,7 @@
 <resources>
 
     <string-array name="color_list">
-        <item>Фиолетовый</item>
+        <item>Зелёный</item>
         <item>Розовый</item>
         <item>Синий</item>
         <item>Серый</item>

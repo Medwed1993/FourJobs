@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,43 +6,62 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".TrLightActivity" >/>
+    tools:context=".TrLightActivity"
+    android:orientation="vertical"
+    android:weightSum="1"><![CDATA[/>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
 
-    </ImageView>
 
-    <app.ua.cert.medwed.view.TrLightView
-        android:id="@+id/custom_drawable_view"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        />
-    
-<View
-    android:id="@+id/bv1"
-    android:layout_width="50dp"
-    android:layout_height="50dp"
-    android:layout_marginLeft="120px"
-    android:layout_marginTop="105px"
-    android:background="@drawable/ball1" />
 
-<View
-    android:id="@+id/bv2"
-    android:layout_width="50dp"
-    android:layout_height="50dp"
-    android:layout_marginLeft="120px"
-    android:layout_marginTop="215px"
-    android:background="@drawable/ball2" />
+    ]]>
 
-<View
-    android:id="@+id/bv3"
-    android:layout_width="50dp"
-    android:layout_height="50dp"
-    android:layout_marginLeft="120px"
-    android:layout_marginTop="160px"
-    android:background="@drawable/ball3" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        android:layout_marginRight="280dp"
+        android:layout_marginLeft="280dp"
+        android:layout_marginBottom="380dp"
+        android:contextClickable="false"
+        android:background="#7a7a7a">
 
-</RelativeLayout>
+        <View
+        android:id="@+id/bv1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+
+            android:background="@drawable/ball1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp" />
+
+        <View
+        android:id="@+id/bv2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+
+            android:background="@drawable/ball2"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="25dp" />
+
+        <View
+        android:id="@+id/bv3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+
+            android:background="@drawable/ball3"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.84"
+        android:layout_marginTop="-380dp"
+        android:layout_marginRight="325dp"
+        android:layout_marginLeft="325dp"
+        android:layout_marginBottom="300dp"
+        android:background="#777777"></FrameLayout>
+
+</LinearLayout>
