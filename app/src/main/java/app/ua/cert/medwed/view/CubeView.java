@@ -7,6 +7,7 @@ import app.ua.cert.medwed.canvas.WindBorder;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
+import android.media.AudioManager;
 import android.media.SoundPool;
 import android.preference.PreferenceManager;
 import android.view.MotionEvent;
@@ -17,6 +18,7 @@ public class CubeView extends View {
 	private ArrayList<Cube> cube_list; // ������ �����
 	private WindBorder winbord; // ������� ����
 	int sound; // ����
+	AudioManager audioManager;
 	SoundPool mSoundPool; // ��� ��������������� �����
 
 	int back_color ; // ���� ���� (������� �� ��������)
@@ -24,7 +26,7 @@ public class CubeView extends View {
 	int cube_a = 1; // �������� ������� (������� �� ��������)
 
 	// �����������
-	public CubeView(Context context, int sound_val, SoundPool sp) {
+	public CubeView(Context context, AudioManager audioManager, SoundPool sp) {
 		super(context);
 		// �������� ���������
 		SharedPreferences settings = PreferenceManager
@@ -33,8 +35,11 @@ public class CubeView extends View {
 		cube_color = Integer.parseInt(settings.getString("pref_c", "-12303292"));
 		cube_a = Integer.parseInt(settings.getString("pref_a", "30"));
 		// ����
-		sound = sound_val;
-		mSoundPool = sp;//katerina___protsenko  meda4ka
+		this.audioManager=audioManager;
+
+
+		mSoundPool=sp;
+
 		cube_list = new ArrayList<Cube>();
 		// ������� ����
 		winbord = new WindBorder(back_color);
@@ -51,12 +56,22 @@ public class CubeView extends View {
 	@Override
 	protected void onDraw(final Canvas canvas) {
 		winbord.draw(canvas);
+
+		float curVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+		float maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+		float leftVolume = curVolume / maxVolume;
+		float rightVolume = curVolume / maxVolume;
+		int priority = 1;
+		int no_loop = 0;
+		float normal_playback_rate = 1f;
 		for (final Cube b : cube_list) {
 			b.draw(canvas);
 			// ���������� ���������
 			if (b.moveWithCollisionDetection(winbord))
 				// ����������� ���� ��� �������������� ���� � ������ ������
-				mSoundPool.play(sound, 1, 1, 1, 0, 1);
+
+				mSoundPool.play(1, leftVolume, rightVolume, priority, no_loop,
+						normal_playback_rate);
 		}
 		invalidate(); // �������������� �����������
 	}

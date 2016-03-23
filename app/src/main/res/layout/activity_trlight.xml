@@ -25,24 +25,24 @@
     android:id="@+id/bv1"
     android:layout_width="50dp"
     android:layout_height="50dp"
-    android:layout_marginLeft="120dp"
-    android:layout_marginTop="105dp"
+    android:layout_marginLeft="120px"
+    android:layout_marginTop="105px"
     android:background="@drawable/ball1" />
 
 <View
     android:id="@+id/bv2"
     android:layout_width="50dp"
     android:layout_height="50dp"
-    android:layout_marginLeft="120dp"
-    android:layout_marginTop="215dp"
+    android:layout_marginLeft="120px"
+    android:layout_marginTop="215px"
     android:background="@drawable/ball2" />
 
 <View
     android:id="@+id/bv3"
     android:layout_width="50dp"
     android:layout_height="50dp"
-    android:layout_marginLeft="120dp"
-    android:layout_marginTop="160dp"
+    android:layout_marginLeft="120px"
+    android:layout_marginTop="160px"
     android:background="@drawable/ball3" />
 
 </RelativeLayout>

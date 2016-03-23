@@ -4,6 +4,7 @@ import java.io.IOException;
 import app.ua.cert.medwed.view.*;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.media.AudioManager;
@@ -25,11 +26,13 @@ public class CubeActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// �������� �����
 		mSoundPool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
-		assets = getAssets();
-		sound = loadSound("sound.ogg");
+		mSoundPool.load(getApplicationContext(),R.raw.sounds,1);
+
+		AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+
 		
 		super.onCreate(savedInstanceState);
-		cubeView = new CubeView(this, sound, mSoundPool);
+		cubeView = new CubeView(this, audioManager, mSoundPool);
 		setContentView(cubeView);
 	}
 
@@ -41,7 +44,7 @@ public class CubeActivity extends Activity {
 		} catch (IOException e) {
 			e.printStackTrace();
 			Toast.makeText(this,
-					"�� ������� ������� �������� ���� '" + fileName + "'",
+					"Отсутсвует звуковой файл '" + fileName + "'",
 					Toast.LENGTH_SHORT).show();
 			return -1;
 		}

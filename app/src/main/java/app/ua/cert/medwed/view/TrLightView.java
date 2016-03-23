@@ -25,8 +25,8 @@ public class TrLightView extends View {
 	
 	//��������� ���������
 	public void drawShape(AttributeSet ast) {
-		int x = 400;
-		int y = 600;
+		int x = 200;
+		int y = 400;
 	
 		osn_midle = new ShapeDrawable(new RectShape());
 		osn_midle.getPaint().setColor(Color.BLACK);
